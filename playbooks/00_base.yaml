@@ -1,7 +1,7 @@
 - name: Setup base software
   hosts: localhost
   become: true
-  become_method: sudo
+  become_method: su
 
   tasks:
     - name: Install package foo from repo
