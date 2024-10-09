@@ -18,6 +18,7 @@
       changed_when: false
 
     - name: Download yay
+      register: yay_download
       git:
         repo: https://aur.archlinux.org/yay.git
         dest: /tmp/yay
@@ -27,7 +28,7 @@
       command: makepkg -si
       args:
         chdir: /tmp/yay
-      when: yay_check.rc != 0 and yay_check.changed
+      when: yay_check.rc != 0 and yay_download.changed
 
     - name: Fonts
       yay:
