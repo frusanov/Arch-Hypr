@@ -18,13 +18,13 @@
       changed_when: false
 
     - name: Download yay
-      community.general.git:
+      git:
         repo: https://aur.archlinux.org/yay.git
         dest: /tmp/yay
         update: yes
-      when: yay_check.rc != 0
       args:
         creates: /tmp/yay
+      when: yay_check.rc != 0
 
     - name: Install yay
       command: makepkg -si
