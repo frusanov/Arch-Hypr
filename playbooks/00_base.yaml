@@ -21,7 +21,6 @@
       git:
         repo: https://aur.archlinux.org/yay.git
         dest: /tmp/yay
-        update: yes
       args:
         creates: /tmp/yay
       when: yay_check.rc != 0
