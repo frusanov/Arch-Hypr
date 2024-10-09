@@ -1,3 +1,3 @@
 export ANSIBLE_LIBRARY=$(pwd)/library;
 
-ansible-playbook ./playbooks/*
+ansible-playbook -K ./playbooks/*
