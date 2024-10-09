@@ -11,25 +11,6 @@
           - archlinux-keyring
         state: present
 
-    - name: Check if yay is installed
-      command: which yay
-      register: yay_check
-      ignore_errors: true
-      changed_when: false
-
-    - name: Download yay
-      register: yay_download
-      git:
-        repo: https://aur.archlinux.org/yay.git
-        dest: /tmp/yay
-      when: yay_check.rc != 0
-
-    - name: Install yay
-      command: makepkg -si
-      args:
-        chdir: /tmp/yay
-      when: yay_check.rc != 0 and yay_download.changed
-
     - name: Fonts
       yay:
         name:
