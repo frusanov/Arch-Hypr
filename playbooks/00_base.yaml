@@ -1,9 +1,9 @@
 - name: Setup base software
   hosts: localhost
-  become: true
 
   tasks:
     - name: Install package foo from repo
+      become: true
       community.general.pacman:
         name:
           - git
